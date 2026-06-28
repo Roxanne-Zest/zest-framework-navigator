@@ -1,0 +1,160 @@
+{
+  "generatedAt": "2026-06-28T16:17:54.487Z",
+  "classes": [
+    "products",
+    "services",
+    "applications",
+    "platforms",
+    "infrastructure",
+    "cloud",
+    "software-licences",
+    "end-user-devices",
+    "reference-data"
+  ],
+  "bands": [
+    "00-blind",
+    "01-account",
+    "02-manage",
+    "03-contextualise",
+    "04-service-ops",
+    "05-automate"
+  ],
+  "packs": [
+    {
+      "id": "infrastructure.03",
+      "pack_type": "element",
+      "title": "Infrastructure → Contextualise",
+      "version": "0.1.0",
+      "owner": "morgan",
+      "trust": "draft",
+      "band_from": 2,
+      "band_to": 3,
+      "unlocks": [
+        "change-impact-assessment",
+        "incident-management",
+        "problem-management",
+        "alerting",
+        "configuration-drift-detection"
+      ],
+      "depends_on": [
+        "infrastructure.02",
+        "reference-data.02"
+      ],
+      "bodyPath": "packs/elements/infrastructure/03-contextualise/_pack.md",
+      "parts": [
+        {
+          "id": "infrastructure.03.standard",
+          "pack": "infrastructure.03",
+          "pack_type": "element",
+          "part": "standard",
+          "title": "Infrastructure → Contextualise — Standard",
+          "version": "0.1.0",
+          "owner": "morgan",
+          "trust": "draft",
+          "gate": "test",
+          "reviewed_by": null,
+          "tested_by": null,
+          "tested_in": null,
+          "verify_notes": "",
+          "band_from": 2,
+          "band_to": 3,
+          "bodyPath": "packs/elements/infrastructure/03-contextualise/standard.md"
+        },
+        {
+          "id": "infrastructure.03.policy",
+          "pack": "infrastructure.03",
+          "pack_type": "element",
+          "part": "policy",
+          "title": "Infrastructure → Contextualise — Policy",
+          "version": "0.1.0",
+          "owner": "morgan",
+          "trust": "draft",
+          "gate": "review",
+          "reviewed_by": null,
+          "band_from": 2,
+          "band_to": 3,
+          "bodyPath": "packs/elements/infrastructure/03-contextualise/policy.md"
+        },
+        {
+          "id": "infrastructure.03.method",
+          "pack": "infrastructure.03",
+          "pack_type": "element",
+          "part": "method",
+          "title": "Infrastructure → Contextualise — Method",
+          "version": "0.1.0",
+          "owner": "morgan",
+          "trust": "draft",
+          "gate": "review",
+          "reviewed_by": null,
+          "effort_days": 6,
+          "band_from": 2,
+          "band_to": 3,
+          "depends_on": [
+            "infrastructure.02",
+            "reference-data.02"
+          ],
+          "bodyPath": "packs/elements/infrastructure/03-contextualise/method.md"
+        },
+        {
+          "id": "infrastructure.03.build",
+          "pack": "infrastructure.03",
+          "pack_type": "element",
+          "part": "build",
+          "title": "Infrastructure → Contextualise — Build / Install",
+          "version": "0.1.0",
+          "owner": "morgan",
+          "trust": "draft",
+          "gate": "test",
+          "reviewed_by": null,
+          "tested_by": null,
+          "tested_in": null,
+          "verify_notes": "",
+          "templates": [
+            "templates/infrastructure/relationship-import.csv"
+          ],
+          "band_from": 2,
+          "band_to": 3,
+          "bodyPath": "packs/elements/infrastructure/03-contextualise/build.md"
+        },
+        {
+          "id": "infrastructure.03.process",
+          "pack": "infrastructure.03",
+          "pack_type": "element",
+          "part": "process",
+          "title": "Infrastructure → Contextualise — Process",
+          "version": "0.1.0",
+          "owner": "morgan",
+          "trust": "draft",
+          "gate": "review",
+          "reviewed_by": null,
+          "band_from": 2,
+          "band_to": 3,
+          "bodyPath": "packs/elements/infrastructure/03-contextualise/process.md"
+        },
+        {
+          "id": "infrastructure.03.commercials",
+          "pack": "infrastructure.03",
+          "pack_type": "element",
+          "part": "commercials",
+          "title": "Infrastructure → Contextualise — Commercials",
+          "version": "0.1.0",
+          "owner": "morgan",
+          "trust": "draft",
+          "gate": "review",
+          "reviewed_by": null,
+          "effort_days": 6,
+          "band_from": 2,
+          "band_to": 3,
+          "unlocks": [
+            "change-impact-assessment",
+            "incident-management",
+            "problem-management",
+            "alerting",
+            "configuration-drift-detection"
+          ],
+          "bodyPath": "packs/elements/infrastructure/03-contextualise/commercials.md"
+        }
+      ]
+    }
+  ]
+}

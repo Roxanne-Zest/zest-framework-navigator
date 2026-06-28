@@ -7,10 +7,12 @@ controlled markdown. The navigator app reads these packs through a manifest buil
 frontmatter to drive the grid index, trust badges, dependency graph, verification queue and
 the generate gate.
 
-> **Status — Slice A.** This repo is the *packs* layer (one of three: app, packs, state). It
-> currently holds the pack **contract**, the **CI lint**, and **one fully-worked element
-> pack** (`infrastructure.03`) at `trust: draft` — the clonable template and the proof of the
-> verification loop. The navigator app and Supabase state live elsewhere.
+> **Status — Slice A done; Slice B next.** This monorepo holds the *packs* layer today (the
+> pack **contract**, the **CI lint**, the **manifest builder**, and one fully-worked element
+> pack `infrastructure.03` at `trust: draft`). The read-only **navigator** app (Slice B) is
+> specified but not yet built — it will live in `/navigator` and mount inside the Zest
+> Delivery shell. **Picking this up? Read [`docs/MILESTONE-1-STATUS.md`](./docs/MILESTONE-1-STATUS.md)
+> first**, then [`docs/manifest.md`](./docs/manifest.md) for the app's data contract.
 
 ## Layout
 
