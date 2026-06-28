@@ -1,3 +1,6 @@
 node_modules/
 npm-debug.log*
 .DS_Store
+
+# derived build artifact — regenerate with `npm run manifest`
+manifest.json

@@ -5,7 +5,8 @@
   "description": "Zest Delivery — pack library (six-part Delivery Packs) and the contract the navigator reads.",
   "type": "module",
   "scripts": {
-    "lint": "node scripts/lint-packs.mjs"
+    "lint": "node scripts/lint.mjs",
+    "manifest": "node scripts/build-manifest.mjs"
   },
   "dependencies": {
     "js-yaml": "^4.1.0"
