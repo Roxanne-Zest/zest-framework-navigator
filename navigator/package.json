@@ -1,0 +1,31 @@
+{
+  "name": "zest-framework-navigator-app",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Framework Navigator — read-only navigator over the Zest Delivery pack library. Mounts as a module inside the Zest Delivery shell.",
+  "scripts": {
+    "prebuild:data": "node scripts/prebuild.mjs",
+    "predev": "npm run prebuild:data",
+    "dev": "vite",
+    "prebuild": "npm run prebuild:data",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview",
+    "typecheck": "tsc -b --noEmit"
+  },
+  "dependencies": {
+    "lucide-react": "^0.460.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-markdown": "^9.0.1",
+    "remark-gfm": "^4.0.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "@vitejs/plugin-react": "^4.3.1",
+    "js-yaml": "^4.1.0",
+    "typescript": "^5.5.3",
+    "vite": "^5.4.0"
+  }
+}

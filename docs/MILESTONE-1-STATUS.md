@@ -22,11 +22,29 @@ This repo is the **monorepo** for the Zest Delivery Framework Navigator & Toolki
 - **Manifest builder** — `scripts/build-manifest.mjs` (`npm run manifest`) → `manifest.json`
   (gitignored; derived). Sample committed at `docs/manifest.example.json`.
 
-### ⏸ Part 2 / Slice B — NOT STARTED (blocked on the shell)
-The read-only navigator (grid index, outcomes index, pack view, verification queue) is
-specified but not built. It must mount inside the **Zest Delivery shell** (auth, nav, layout,
-brand), which lives in a **separate repo** this session could not reach (see Environment
-notes). The next session should be launched with that repo in scope.
+### ✅ Part 2 / Slice B — BUILT (read-only navigator)
+The read-only navigator now lives in [`/navigator`](../navigator) (React + Vite + TS, own
+`package.json`). All four views are built and manifest-driven:
+- **Grid index** — 9×6 from `manifest.classes`/`bands`; element cells clickable, trust-coloured.
+- **Outcomes** — data-driven by `domain`; `unlocks`-referenced-but-unauthored shown "not yet
+  drafted" (catalogue never invented).
+- **Pack view** — `_pack.md` + 6 parts via `react-markdown`; per-part badge row
+  (`trust`·`gate`·`owner`·`tested_in`); "Unverified — not for client delivery" banner below
+  `live`; dependency view from `depends_on` + `unlocks`.
+- **Verification queue** — every part by trust rung, counts + filter, test-gated drafts first.
+
+**Data flow** (`navigator/scripts/prebuild.mjs`, run by `dev`/`build`): runs the Slice A
+manifest builder, vendors `manifest.json` into the app, and copies each part's `bodyPath`
+markdown into `public/`. Build-time only — no runtime GitHub/API calls.
+
+**Shell integration:** the Zest Delivery shell gained a **Framework** sidebar item
+(`DashSidebar`) and a `framework` view (`src/features/navigator/FrameworkModule.tsx`) that
+mounts the navigator in embed mode inside the authenticated `.zest-dash` layout, reusing the
+shell's auth/nav/layout/brand. Host points at the build via `VITE_NAVIGATOR_URL` (default
+`/navigator/`).
+
+**Still out of scope (Slice C/D/E):** tracker, generation / "Generate for customer", ROI, any
+Supabase writes. The navigator is read-only.
 
 ---
 
