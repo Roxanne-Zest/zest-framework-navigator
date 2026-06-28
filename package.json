@@ -1,0 +1,13 @@
+{
+  "name": "zest-delivery-packs",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Zest Delivery — pack library (six-part Delivery Packs) and the contract the navigator reads.",
+  "type": "module",
+  "scripts": {
+    "lint": "node scripts/lint-packs.mjs"
+  },
+  "dependencies": {
+    "js-yaml": "^4.1.0"
+  }
+}

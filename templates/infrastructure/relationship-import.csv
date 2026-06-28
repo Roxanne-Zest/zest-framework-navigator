@@ -1,0 +1,5 @@
+source_ci_name,relationship_type,target_ci_name
+APP-PAYROLL-01,Runs on,SRV-VMW-014
+SRV-VMW-014,Depends on,STOR-SAN-NETAPP-02
+SRV-VMW-014,Connected to,NET-CORE-SW-01
+SRV-VMW-014,Located in,DC-LONDON-01
