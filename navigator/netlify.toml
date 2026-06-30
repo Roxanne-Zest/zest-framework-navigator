@@ -1,0 +1,25 @@
+# Netlify config for the Framework Navigator app.
+#
+# Deploy this as its own Netlify site with the **base directory set to
+# `navigator`** (Site settings → Build & deploy → Base directory). Netlify then
+# reads this file, runs the build in navigator/, and publishes navigator/dist.
+#
+# The build runs scripts/prebuild.mjs first (via the `prebuild` npm hook): it
+# builds manifest.json from the repo's /packs and copies the markdown bodies
+# into public/. The whole repo is checked out, so ../packs and ../scripts are
+# present; the prebuild installs the repo-root deps (js-yaml) it needs if they
+# aren't already there.
+
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "22"
+
+# SPA: the navigator routes via the query string on a single document, so every
+# path serves index.html.
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
