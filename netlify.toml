@@ -1,0 +1,22 @@
+# Root Netlify config — makes this repo deploy the Framework Navigator app with
+# NO manual site settings. Netlify reads this when the site's base directory is
+# left at the repo root (the default). It installs root deps automatically (the
+# manifest builder needs js-yaml), then builds the navigator subfolder and
+# publishes navigator/dist.
+#
+# (If you instead set the site's base directory to `navigator`, Netlify reads
+# navigator/netlify.toml — either path works. This root file is the zero-config
+# default so the site can't come up blank from publishing the repo root.)
+
+[build]
+  command = "npm --prefix navigator ci && npm --prefix navigator run build"
+  publish = "navigator/dist"
+
+[build.environment]
+  NODE_VERSION = "22"
+
+# SPA: the navigator routes via the query string on a single document.
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200

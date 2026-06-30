@@ -50,6 +50,21 @@ npm run typecheck
 The prebuild reads the packs from the repo root (`../packs`) and needs the root's `js-yaml`;
 if the root deps aren't installed it installs them once automatically.
 
+## Deploy
+
+`netlify.toml` deploys this as its own Netlify site — set the site's **base directory to
+`navigator`** so Netlify reads it, builds in `navigator/`, and publishes `navigator/dist`. The
+build runs the data prebuild first (the whole repo is checked out, so `../packs` is present).
+CI builds the app on every push/PR via `.github/workflows/build-navigator.yml`.
+
+Two ways to wire the shell to the deployed build:
+
+- **Same-origin (recommended)** — proxy `/navigator/*` from the shell to this site (a redirect
+  in the shell's `netlify.toml`). The shell's default `VITE_NAVIGATOR_URL` (`/navigator/`) then
+  works and the iframe stays same-origin.
+- **Cross-origin** — set `VITE_NAVIGATOR_URL` in the shell to this site's full URL. The Vite
+  `base` is relative, so the app runs under any origin/path.
+
 ## Mounting in the Zest Delivery shell
 
 The shell adds a **Framework** item to its sidebar (`DashSidebar`) and a `framework` view

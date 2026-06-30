@@ -1,0 +1,35 @@
+name: Build navigator
+
+# Builds the read-only navigator app (Slice B) on every push and PR, so a broken
+# build or type error never reaches the default branch. The navigator is driven
+# entirely by build-time data: the build runs the prebuild (manifest + body copy)
+# before tsc/vite, exactly as the deploy does.
+
+on:
+  push:
+    branches: ["**"]
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+
+      # Repo-root deps (js-yaml) — the navigator prebuild runs the manifest
+      # builder, which resolves them from the repo root.
+      - name: Install root deps
+        run: npm ci
+
+      - name: Install navigator deps
+        working-directory: navigator
+        run: npm ci
+
+      - name: Typecheck + build (runs the data prebuild first)
+        working-directory: navigator
+        run: npm run build
